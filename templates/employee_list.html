@@ -1,0 +1,48 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'style/employee_list.css' %}" />
+    <title>Employee List</title>
+  </head>
+  <body>
+    <h1>Employee List</h1>
+    <ul>
+      {% for employee in employees %}
+      <li>
+        <h2>{{ employee.name }}</h2>
+        <div class="entry">
+          <ul id="entry1">
+            {% if employee.linkedin %}
+            <li>
+              <a href="{{ employee.linkedin }}" target="_blank">
+                <i>Linkedin/{{employee.name}}</i>
+              </a>
+            </li>
+            {% endif %} {% if employee.twitter %}
+            <li>
+              <a href="{{ employee.twitter }}" target="_blank">
+                <i>twitter/{{employee.name}}</i>
+              </a>
+            </li>
+            {% endif %} {% if employee.instagram %}
+            <li>
+              <a href="{{ employee.instagram }}" target="_blank">
+                <i>instagram/{{employee.name}}</i>
+              </a>
+            </li>
+            {% endif %} {% if employee.facebook %}
+            <li>
+              <a href="{{ employee.facebook }}" target="_blank">
+                <i>facebook/{{employee.name}}</i>
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
